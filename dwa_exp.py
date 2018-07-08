@@ -1,10 +1,4 @@
-"""
 
-Mobile robot motion planning sample with Dynamic Window Approach
-
-author: Atsushi Sakai (@Atsushi_twi)
-
-"""
 
 import math
 import numpy as np
