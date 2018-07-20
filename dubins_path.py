@@ -161,23 +161,6 @@ def dubins_path_planning_from_origin(ex, ey, eyaw, c):
 
 
 def dubins_path_planning(sx, sy, syaw, ex, ey, eyaw, c):
-    """
-    Dubins path plannner
-    input:
-        sx x position of start point [m]
-        sy y position of start point [m]
-        syaw yaw angle of start point [rad]
-        ex x position of end point [m]
-        ey y position of end point [m]
-        eyaw yaw angle of end point [rad]
-        c curvature [1/m]
-    output:
-        px
-        py
-        pyaw
-        mode
-    """
-
     ex = ex - sx
     ey = ey - sy
 
@@ -246,7 +229,7 @@ def generate_course(length, mode, c):
     return px, py, pyaw
 
 
-def plot_arrow(x, y, yaw, length=1.0, width=0.5, fc="r", ec="k"):
+def marker(x, y, yaw, length=1.0, width=0.5, fc="r", ec="k"):
     u"""
     Plot arrow
     """
@@ -254,7 +237,7 @@ def plot_arrow(x, y, yaw, length=1.0, width=0.5, fc="r", ec="k"):
 
     if not isinstance(x, float):
         for (ix, iy, iyaw) in zip(x, y, yaw):
-            plot_arrow(ix, iy, iyaw)
+            marker(ix, iy, iyaw)
     else:
         plt.arrow(x, y, length * math.cos(yaw), length * math.sin(yaw),
                   fc=fc, ec=ec, head_width=width, head_length=width)
@@ -281,11 +264,11 @@ if __name__ == '__main__':
     plt.plot(px, py, label="final course " + "".join(mode))
 
     # plotting
-    plot_arrow(start_x, start_y, start_yaw)
-    plot_arrow(end_x, end_y, end_yaw)
+    marker(start_x, start_y, start_yaw)
+    marker(end_x, end_y, end_yaw)
 
     #  for (ix, iy, iyaw) in zip(px, py, pyaw):
-    #  plot_arrow(ix, iy, iyaw, fc="b")
+    #  marker(ix, iy, iyaw, fc="b")
 
     plt.legend()
     plt.grid(True)
