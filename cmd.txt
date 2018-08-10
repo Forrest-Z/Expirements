@@ -1,0 +1,2 @@
+sudo apt-get install ros-indigo-velodyne-simulator
+git clone https://bitbucket.org/DataspeedInc/velodyne_simulator.gitroslaunch velodyne_description example.launch
